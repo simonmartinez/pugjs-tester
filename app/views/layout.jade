@@ -4,7 +4,9 @@ html(lang='en')
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
 
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous")
-
+    link(href="https://fonts.googleapis.com/css?family=Source+Code+Pro", rel="stylesheet", type="text/css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/codemirror.css", type="text/css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/theme/solarized.min.css", type="text/css")
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
     title= title
@@ -13,3 +15,34 @@ html(lang='en')
         script(src='http://localhost:35729/livereload.js')
   body
     block content
+
+
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/codemirror.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/mode/xml/xml.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/mode/javascript/javascript.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/mode/css/css.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/mode/jade/jade.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/mode/htmlmixed/htmlmixed.min.js")
+    
+    style.
+      .CodeMirror {
+        border: 1px solid #F0F0F0;
+        border-radius: 4px;
+        padding: 4px 8px;
+      }
+
+    script.
+      $( document ).ready(function() {
+        var jadeEditor = CodeMirror.fromTextArea(document.getElementById("template"), {
+          styleActiveLine: true,
+          matchBrackets: true,
+          mode: 'jade'
+        });
+
+        var jadeEditor = CodeMirror.fromTextArea(document.getElementById("object"), {
+          styleActiveLine: true,
+          matchBrackets: true,
+          mode: 'javascript'
+        });
+      });
